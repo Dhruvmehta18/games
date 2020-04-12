@@ -17,7 +17,7 @@ body {
   height: auto;
   width: 100vw;
   position: relative;
-  justify-content: center;
+  justify-content: space-evenly;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -25,10 +25,10 @@ body {
 }
 
 .scene {
-  width: 150px;
-  height: 150px;
+  width: 25vw;
+  height: 25vw;
   perspective: 600px;
-  margin: 16px;
+  margin: 4px;
 }
 
 .card {
@@ -59,8 +59,8 @@ img {
   max-width: 100%;
   width: auto;
   height: auto;
-  min-width: 150px;
-  min-height: 150px;
+  min-width: 25vw;
+  min-height: 25vw;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.6);
   -webkit-user-drag: none;
   -khtml-user-drag: none;
@@ -120,7 +120,7 @@ button {
 }
 .information-list-container {
   display: inline-flex;
-  width: 95vw;
+  width: 100vw;
   align-self: center;
 }
 ul.information-list {
@@ -128,12 +128,14 @@ ul.information-list {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
+  justify-content: space-evenly;
 }
 li.information-list-item {
   display: flex;
 }
 
 li.information-list-item .image-container {
+  width: 100vw;
   margin: 16px;
 }
 
@@ -160,8 +162,8 @@ li.information-list-item .text-container p {
 }
 
 .information-image {
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 90vw;
+  max-height: 90vw;
 }
 
 button.icon {
@@ -182,4 +184,82 @@ button.icon {
 }
 #restore-container {
   cursor: pointer;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .information-image {
+    min-width: 90vw;
+    min-height: 90vw;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .scene {
+    width: 20vw;
+    height: 20vw;
+  }
+  img {
+    min-width: 20vw;
+    min-height: 20vw;
+  }
+  .information-container {
+    width: 95vw;
+  }
+  .information-image {
+    min-width: 40vw;
+    min-height: 40vw;
+  }
+  li.information-list-item .image-container{
+    width: auto;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .scene {
+    width: 15vw;
+    height: 15vw;
+  }
+
+  img {
+    min-width: 15vw;
+    min-height: 15vw;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .scene {
+    width: 14vw;
+    height: 14vw;
+    margin: 6px;
+  }
+  img {
+    min-width: 14vw;
+    min-height: 14vw;
+  }
+  .information-container {
+    width: 95vw;
+  }
+  .information-image {
+    min-width: auto;
+    min-height: auto;
+    max-width: 200px;
+    max-height: 200px;
+  }
+  li.information-list-item .image-container {
+    width: auto;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .information-image {
+    max-width: 15vw;
+    max-height: 15vw;
+  }
+  li.information-list-item .image-container {
+    width: auto;
+  }
 }
