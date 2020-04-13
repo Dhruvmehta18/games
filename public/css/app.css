@@ -1,6 +1,121 @@
-body {
-  font-family: 'Open Sans', sans-serif;
+:root {
+  --primary-color: #fd701f;
+  --plight-color: #ffa150;
+  --pdark-color: #c34000;
+  --secondary-color: #2e1143;
 }
+body {
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+  color: white;
+  margin: 0;
+  background: radial-gradient(
+    at 0% 108%,
+    var(--primary-color) 2%,
+    #742637 58%,
+    var(--secondary-color) 92%
+  )
+  no-repeat;
+}
+#root {
+  width: 100%;
+  height: 100%;
+}
+#main-app {
+  /* width: inherit;
+  height: 100vw; */
+}
+
+.box {
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.results {
+  display: inline-flex;
+  justify-content: space-around;
+}
+
+.scoreboard {
+  display: inline-flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+}
+.score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  background: radial-gradient(
+    circle at 10% 50%,
+    var(--primary-color) 30%,
+    var(--secondary-color)
+  );
+}
+
+.overlay {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+.resultMessageContainer{
+  font-size: 2rem;
+}
+.overlay-container {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: center;
+}
+
+.overlay button.overlay-button {
+  width: 15vw;
+  height: 15vw;
+  max-width: 150px;
+  max-height: 150px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  box-shadow: 2px 2px 4px 5px rgba(253, 112, 31, 0.2);
+}
+
+.overlay button.overlay-button i.img-icon {
+  font-size: 24px;
+  font-size: 10vw;
+  opacity: 0.8;
+  color: white;
+}
+
+.button-box {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  width: auto;
+}
+
 .container {
   display: flex;
   width: 100%;
@@ -29,6 +144,9 @@ body {
   height: 25vw;
   perspective: 600px;
   margin: 4px;
+  box-shadow: 2px 2px 4px 5px rgba(253, 112, 31, 0.2);
+  overflow: hidden;
+  border-radius: 4px;
 }
 
 .card {
@@ -76,11 +194,6 @@ img {
   display: inline-flex;
   width: 100%;
   justify-content: space-around;
-}
-.button-container {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
 }
 .img {
   width: 32px;
@@ -210,7 +323,7 @@ button.icon {
     min-width: 40vw;
     min-height: 40vw;
   }
-  li.information-list-item .image-container{
+  li.information-list-item .image-container {
     width: auto;
   }
 }

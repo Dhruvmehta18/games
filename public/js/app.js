@@ -4,12 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let animalArray = [];
   const randomAnimalImagesSite = 'https://www.randomlists.com';
   const isFlippedClassname = 'is-flipped';
-  const blankImagePath = 'images/blank.png';
+  const blankImagePath = 'icons/question.svg';
+  const loseMessage = 'You lose';
+  const winMessage = 'Congratulations\n you won game';
   const grid = document.querySelector('.grid');
-  const resultDisplay = document.querySelector('#result');
-  const remainingDisplay = document.querySelector('#remaining');
+  const resultDisplay = document.getElementById('result');
+  const resultMessage = document.getElementById('resultMessage');
+  const remainingDisplay = document.getElementById('remaining');
   const refreshButton = document.getElementById('refresh-container');
   const restoreButton = document.getElementById('restore-container');
+  const overlay = document.getElementsByClassName('overlay')[0];
   const informationList = document.getElementsByClassName(
     'information-list',
   )[0];
@@ -50,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  const resultMessageDisplay = (text) => {
+    resultMessage.textContent = text;
+  };
 
   function resultDisplayContent() {
     resultDisplay.textContent = cardsWon.length;
@@ -114,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function flipCard() {
     if (totalTurnsRemaning === 0) {
-      alert('You lose');
+      resultMessageDisplay(loseMessage);
       setFlipped();
     } else if (!isDisableFlip) {
       const cardId = this.getAttribute('data-id');
@@ -145,12 +152,16 @@ document.addEventListener('DOMContentLoaded', () => {
       cardsWon.push(cardsChosen);
       isDisableFlip = false;
       resultDisplayContent();
-      if (cardsWon.length === cardArray.length / 2) {
-        resultDisplay.textContent = 'Congratulations you won game';
-      }
-      remainingDisplayContent();
       totalTurnsRemaning -= 1;
+      remainingDisplayContent();
+      if (cardsWon.length === cardArray.length / 2) {
+        overlay.classList.toggle('displayNone');
+        resultMessageDisplay(winMessage);
+        return;
+      }
       if (totalTurnsRemaning === 0) {
+        overlay.classList.toggle('displayNone');
+        resultMessageDisplay(loseMessage);
         setFlipped();
       }
     } else {
@@ -163,13 +174,16 @@ document.addEventListener('DOMContentLoaded', () => {
         imgBack2.setAttribute('src', blankImagePath);
         isDisableFlip = false;
         resultDisplayContent();
-        if (cardsWon.length === cardArray.length / 2) {
-          resultDisplay.textContent = 'Congratulations you won game';
-        }
-        remainingDisplayContent();
         totalTurnsRemaning -= 1;
+        remainingDisplayContent();
+        if (cardsWon.length === cardArray.length / 2) {
+          overlay.classList.toggle('displayNone');
+          resultMessageDisplay(winMessage);
+          return;
+        }
         if (totalTurnsRemaning === 0) {
-          alert('You lose');
+          overlay.classList.toggle('displayNone');
+          resultMessageDisplay(loseMessage);
           setFlipped();
         }
       }, 1000);
@@ -234,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     totalTurnsRemaning = totalTurns;
     resultDisplayContent();
     remainingDisplayContent();
+    overlay.classList.toggle('displayNone');
   }
   const status = (response) => {
     if (response.status >= 200 && response.status < 300) {
@@ -247,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function changeData(type = 0) {
     const handleData = (data) => {
       const init = () => {
-        refreshButton.addEventListener('click', changeData);
+        refreshButton.addEventListener('click', () => changeData(1));
         restoreButton.addEventListener('click', resetBoard);
         totalTurns = cardArray.length;
         totalTurnsRemaning = totalTurns;
@@ -275,8 +290,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
       if (type === 0) {
-        init();
         addToArray();
+        init();
         createBoard();
         createInformationList();
       } else {

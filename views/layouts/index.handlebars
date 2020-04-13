@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-  <head>
-    <meta charset="utf-8" />
-    <title>Memory game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/app.css" type="text/css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Memory game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/app.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
 
-  <body>
-    <div class="box">
-      <h3>
-        Score: <span id="result"></span>
-        <br />
-        Remaining: <span id="remaining"></span>
-      </h3>
-      <div class="button-container">
-        <div>
-          <span>Refresh </span>
-          <button class="icon" id="refresh-container">
-            <span class="material-icons" title="refresh">
-              refresh
-            </span>
-          </button>
+<body>
+  <div id="app">
+     <div class="overlay displayNone">
+       <div class="resultMessageContainer">
+         <span id="resultMessage"></span>
+       </div>
+       <div class="overlay-container">
+         <div class="button-container">
+          <div class="button-box">
+            <span>Refresh </span>
+            <button class="icon overlay-button" id="refresh-container">
+              <i class="material-icons  img-icon" title="refresh">
+                refresh
+              </i>
+            </button>
+          </div>
+          <div  class="button-box">
+            <span>Restore </span>
+            <button class="icon overlay-button" id="restore-container">
+              <i class="material-icons img-icon" title="restore">
+                restore
+              </i>
+            </button>
+          </div>
         </div>
-        <br>
-        <div>
-          <span>Restore </span>
-          <button class="icon" id="restore-container">
-            <i class="material-icons img-icon" title="restore">
-              restore
-            </i>
-          </button>
+       </div>
+        
+      </div>
+    <div id="main-app">
+      <div style="display: flex;justify-content:center;margin-bottom:12px;font-size:1.5rem">
+        <span>Memory game</span>
+      </div>
+     
+      <div class="box">
+        <div class="results">
+          <div class="scoreboard">
+            <div class="score-circle score">
+              <span id="result"></span>
+            </div>
+            <h3>
+              Score
+            </h3>
+          </div>
+          <div class=" scoreboard">
+            <div class="score-circle  remaining-score">
+              <span id="remaining"></span>
+            </div>
+            <h3>
+              Remaining
+            </h3>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="container">
-      <div class="grid">
+      <div class="container">
+        <div class="grid">
+        </div>
       </div>
     </div>
     <div class="information-container">
@@ -52,7 +79,8 @@
         </div>
       </div>
     </div>
-  </body>
-  <script src="/js/app.js"></script>
+  </div>
+</body>
+<script src="/js/app.js"></script>
 
 </html>
