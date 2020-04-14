@@ -21,10 +21,6 @@ body {
   width: 100%;
   height: 100%;
 }
-#main-app {
-  /* width: inherit;
-  height: 100vw; */
-}
 
 .box {
   display: inline-flex;
@@ -61,10 +57,10 @@ body {
 
 .overlay {
   display: inline-flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 100;
   position: fixed;
@@ -222,7 +218,6 @@ button {
   display: flex;
   flex-direction: column;
   padding: 16px;
-  margin-top: 32px;
 }
 
 #more-info {
@@ -235,6 +230,7 @@ button {
   display: inline-flex;
   width: 100vw;
   align-self: center;
+  overflow: auto;
 }
 ul.information-list {
   list-style-type: none;
@@ -242,9 +238,95 @@ ul.information-list {
   flex-wrap: wrap;
   padding: 0;
   justify-content: space-evenly;
+  height: 100vh;
 }
+
+.informationListUp{
+  animation: informationscrollup 800ms ease-out 0s 1 normal forwards;
+}
+
+.informationListDown{
+  animation: informationscrolldown 800ms ease-out 0s 1 normal forwards;
+} 
+@keyframes informationscrollup{
+  0%{
+    transform:translateY(95vh);
+  }
+  100%{
+    transform: translateY(0vh);
+  }
+}
+
+@-moz-keyframes informationscrollup{
+  0%{
+    transform:translateY(95vh);
+  }
+  100%{
+    transform: translateY(0vh);
+  }
+}
+
+@-o-keyframes informationscrollup{
+  0%{
+    transform:translateY(95vh);
+  }
+  100%{
+    transform: translateY(0vh);
+  }
+}
+
+@-webkit-keyframes informationscrollup{
+  0%{
+    transform:translateY(95vh);
+  }
+  100%{
+    transform: translateY(0vh);
+  }
+}
+
+
+@keyframes informationscrolldown{
+  0%{
+    transform:translateY(5vh);
+  }
+  100%{
+    transform: translateY(90vh);
+  }
+}
+
+@-moz-keyframes informationscrolldown{
+  0%{
+    transform:translateY(5vh);
+  }
+  100%{
+    transform: translateY(90vh);
+  }
+}
+
+@-o-keyframes informationscrolldown{
+  0%{
+    transform:translateY(5vh);
+  }
+  100%{
+    transform: translateY(90vh);
+  }
+}
+
+@-webkit-keyframes informationscrolldown{
+  0%{
+    transform:translateY(5vh);
+  }
+  100%{
+    transform: translateY(90vh);
+  }
+}
+
 li.information-list-item {
+  width: 100vw;
   display: flex;
+  margin: 8px;
+  border-radius: 8px;
+  background-color: rgba(255,255,255,0.7);
 }
 
 li.information-list-item .image-container {
@@ -255,6 +337,7 @@ li.information-list-item .image-container {
 li.information-list-item .image-container p {
   text-align: center;
   font-size: 1.25rem;
+  color: black;
 }
 
 li.information-list-item .text-container {

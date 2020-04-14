@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const refreshButton = document.getElementById('refresh-container');
   const restoreButton = document.getElementById('restore-container');
   const overlay = document.getElementsByClassName('overlay')[0];
+  const resultMessageContainer = overlay.getElementsByClassName('resultMessageContainer')[0];
+  const overlayContainer = overlay.getElementsByClassName('overlay-container')[0];
+  const informationContainer = overlay.getElementsByClassName('information-container')[0];
   const informationList = document.getElementsByClassName(
     'information-list',
   )[0];
@@ -67,7 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function moreInfoClick() {
+    resultMessageContainer.classList.toggle('displayNone');
+    overlayContainer.classList.toggle('displayNone');
     informationList.classList.toggle('displayNone');
+    informationContainer.classList.toggle('informationListUp');
   }
 
   function sortingRandom() {
@@ -98,6 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function createInformationList() {
+    const informationListItemClicked = (event) => {
+      const listId = event.currentTarget.getAttribute('data-listid');
+      const animal = animalArray[listId];
+      const msg = new SpeechSynthesisUtterance(animal.name);
+      window.speechSynthesis.speak(msg);
+    };
     for (let i = 0; i < animalArray.length; i += 1) {
       const animal = animalArray[i];
       const listItem = document.createElement('li');
@@ -106,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const name = document.createElement('p');
       const description = document.createElement('p');
       listItem.classList.add('information-list-item');
+      listItem.addEventListener('click', informationListItemClicked);
+      listItem.setAttribute('data-listid', i);
       imageContainer.classList.add('image-container');
       image.setAttribute('src', animal.img);
       image.setAttribute('alt', animal.name);
