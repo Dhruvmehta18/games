@@ -2,22 +2,18 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Memory game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/app.css" type="text/css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  {{>header}}
+  <link rel="stylesheet" href="./css/memorygame.css" type="text/css" />
 </head>
 
 <body>
   <div id="app">
-     <div class="overlay displayNone">
-       <div class="resultMessageContainer">
-         <span id="resultMessage"></span>
-       </div>
-       <div class="overlay-container">
-         <div class="button-container">
+    <div class="overlay displayNone">
+      <div class="resultMessageContainer">
+        <span id="resultMessage"></span>
+      </div>
+      <div class="overlay-container">
+        <div class="button-container">
           <div class="button-box">
             <span>Refresh </span>
             <button class="icon overlay-button" id="refresh-container">
@@ -26,7 +22,7 @@
               </i>
             </button>
           </div>
-          <div  class="button-box">
+          <div class="button-box">
             <span>Restore </span>
             <button class="icon overlay-button" id="restore-container">
               <i class="material-icons img-icon" title="restore">
@@ -35,23 +31,34 @@
             </button>
           </div>
         </div>
-       </div>
-        <div class="information-container">
-      <div class="more-button">
-        <button id="more-info">More info</button>
       </div>
-      <div class="information-list-container">
-        <div>
-          <ul class="information-list displayNone"></ul>
+      <div class="information-container">
+        <div class="more-button">
+          <button id="more-info">More info</button>
+        </div>
+        <div class="information-list-container">
+          <div>
+            <ul class="information-list displayNone"></ul>
+          </div>
         </div>
       </div>
     </div>
-      </div>
     <div id="main-app">
-      <div style="display: flex;justify-content:center;margin-bottom:12px;font-size:1.5rem">
-        <span>Memory game</span>
+      <div style="display: flex;font-size:1.5rem">
+        <div style="display:inline-flex">
+          <button id="close" style="background-color: rgba(0,0,0,0);color:white;border:none;outline:none;">
+            <a href="{{homepage_url}}" style="color:white;text-decoration: none;">
+              <span class="material-icons">
+                close
+              </span>
+            </a>
+          </button>
+        </div>
+        <div style="display:flex;flex:1;justify-content:center;margin-bottom:12px;">
+          <span>Memory game</span>
+        </div>
       </div>
-     
+
       <div class="box">
         <div class="results">
           <div class="scoreboard">
@@ -80,6 +87,6 @@
     </div>
   </div>
 </body>
-<script src="/js/app.js"></script>
+<script src="/js/memorygame.js"></script>
 
 </html>
