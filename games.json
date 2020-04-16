@@ -2,8 +2,11 @@
     "games": [
         {
             "name": "memory game",
-            "img": "images/games/memorygame/memorygame1.jpg",
             "url": "/memorygame"
+        },
+        {
+          "name":"Whack a Mole",
+          "url": "/whackamole"
         }
     ]
 }

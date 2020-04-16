@@ -1,0 +1,71 @@
+<html lang="en" dir="ltr">
+  <head>
+    {{>header}}
+    <link rel="stylesheet" href="./css/whackamole.css"/>
+  </head>
+  <body>
+    <div class="overlay displayNone">
+      <div class="resultMessageContainer">
+        <span id="resultMessage"></span>
+      </div>
+      <div class="overlay-container">
+        <div class="button-container">
+          <div class="button-box">
+            <span>Refresh </span>
+            <button class="icon overlay-button" id="refresh-container">
+              <i class="material-icons  img-icon" title="refresh">
+                refresh
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="display: flex;font-size:1.5rem">
+        <div style="display:inline-flex">
+          <button id="close" style="background-color: rgba(0,0,0,0);color:white;border:none;outline:none;">
+            <a href="{{homepage_url}}" style="color:white;text-decoration: none;">
+              <span class="material-icons">
+                close
+              </span>
+            </a>
+          </button>
+        </div>
+        <div style="display:flex;flex:1;justify-content:center;margin-bottom:12px;">
+          <span>Whack a Mole</span>
+        </div>
+      </div>
+      <div class="results">
+        <div class="scoreboard">
+          <div class="score-circle score">
+            <span id="score">0</span>
+          </div>
+          <h3>
+            Score
+          </h3>
+        </div>
+        <div class="scoreboard">
+          <div class="remaining-score">
+            <div id="timer"></div>
+          </div>
+          <h3>
+            Time left
+          </h3>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="square" id="1"></div>
+      <div class="square" id="2"></div>
+      <div class="square" id="3"></div>
+      <div class="square" id="4"></div>
+      <div class="square" id="5"></div>
+      <div class="square" id="6"></div>
+      <div class="square" id="7"></div>
+      <div class="square" id="8"></div>
+      <div class="square" id="9"></div>
+    </div>
+  </body>
+  <script src="/js/whackamole.js"></script>
+</html>

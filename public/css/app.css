@@ -26,7 +26,7 @@ body {
 }
 
 .grid-container {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 100vw;
@@ -37,6 +37,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width:100%;
 }
 
 .card {
@@ -48,6 +49,8 @@ body {
   width: 20vw;
   max-width: 200px;
   max-height: 300px;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 a.card-wrapper {
@@ -79,4 +82,3 @@ a.card-wrapper {
   font-size: 1.5em;
   text-transform: capitalize;
 }
-

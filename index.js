@@ -30,6 +30,10 @@ app.get('/memorygame', (req, res) => {
   res.render('memorygame', { homepage_url: `${req.protocol}://${req.headers.host}` });
 });
 
+app.get('/whackamole',(req, res)=>{
+  res.render('whackamole', { homepage_url: `${req.protocol}://${req.headers.host}` });
+});
+
 app.get('/animal.json', (req, res) => {
   res.send(animalJson);
 });
